@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hodlinfo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #212529;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        text-align: left;
+        margin-top: 30px;
+        margin-left: 20px;
+        font-size: 3.5rem;
+        color: #5dc7c2;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      table {
+        margin: 20px auto;
+        border-collapse: collapse;
+        width: 80%;
+        max-width: 800px;
+        color: #fff;
+      }
+
+      th {
+        color: gray;
+        padding-bottom: 20px;
+        font-size: 1.2rem;
+      }
+
+      td {
+        padding: 12px 15px;
+        margin: 0;
+        text-align: center;
+        font-size: 15px;
+      }
+
+      tbody td {
+        background-color: gray;
+        border-bottom: 10px solid #212529;
+      }
+
+      #st {
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        background-color: gray;
+      }
+
+      #en {
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        background-color: grey;
+      }
+      @media only screen and (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+        table {
+          width: 100%;
+          font-size: 12px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>HODLINFO</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Last Price</th>
+          <th>Buy Price</th>
+          <th>Sell Price</th>
+          <th>Volume</th>
+          <th>Base Unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (data.length > 0) { %> <% data.forEach(function (item, index) { %>
+        <tr>
+          <td id="st"><%= index + 1 %></td>
+          <td><%= item.name %></td>
+          <td><%= item.last %></td>
+          <td><%= item.buy %></td>
+          <td><%= item.sell %></td>
+          <td><%= item.volume %></td>
+          <td id="en"><%= item.base_unit %></td>
+        </tr>
+        <% }); %>
+         <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>
